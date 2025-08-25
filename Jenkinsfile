@@ -3,7 +3,7 @@ pipeline {
     agent any
     environment {
         // REPLACE with your Docker Hub Username
-        DOCKER_HUB_USERNAME = 'your-dockerhub-username'
+        DOCKER_HUB_USERNAME = 'vanshpansuriya'
         IMAGE_NAME = "flask-ci-cd-app"
         TAG_NAME = "${env.BUILD_NUMBER}"
     }
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 echo 'Pushing image to Docker Hub...'
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USER')]) {
+                    withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USER')]) {
                         sh "echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USER --password-stdin"
                         sh "docker push ${env.DOCKER_HUB_USERNAME}/${env.IMAGE_NAME}:${env.TAG_NAME}"
                         sh "docker push ${env.DOCKER_HUB_USERNAME}/${env.IMAGE_NAME}:latest"
