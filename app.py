@@ -59,7 +59,7 @@ def index():
         </style>
     </head>
     <body>
-        <h1>✅ To-Do List</h1>
+        
         <form method="POST">
             <input type="text" name="task" placeholder="Enter a new task" required>
             <button type="submit">Add</button>
