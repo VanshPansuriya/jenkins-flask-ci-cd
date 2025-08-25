@@ -45,7 +45,7 @@ def index():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>✅ To-Do List App</title>
+        
         <style>
             body { font-family: Arial, sans-serif; margin: 40px; background: #f7f7f7; }
             h1 { color: #4CAF50; }
